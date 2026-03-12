@@ -47,6 +47,16 @@ def valid_number(prompt: str) -> float:
             print("That's not a number, try again!")
     return number
 
+def valid_operation(prompt: str) -> str:
+    valid_operation= False
+    while valid_operation == False:
+        operation = input(prompt)
+        if operation == "add" or operation == "subtract" or operation == "multiply" or operation == "divide":
+            valid_operation = True
+        else: 
+            print("That's not a valid operation!")
+    return operation
+
 def main():
     
     print(f"===== Simple Calculator =====")
@@ -54,7 +64,7 @@ def main():
     # Ask the user for sample input    
     num1 = valid_number("Enter the first number: ")
     num2 = valid_number("Enter the second number: ")
-    operation = input("Enter the operation (add, subtract, multiply, divide): ").strip().lower()
+    operation = valid_operation("Enter the operation (add, subtract, multiply, divide): ")
 
     # Perform the calculation and display the result
     result = simple_calculator(operation, num1, num2)
